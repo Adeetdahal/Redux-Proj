@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useAlert } from 'react-alert';
 import * as Api from 'services/Api';
-import { isLoggedin } from '../../redux/actions/userAction';
+import { isLoggedin, setToken } from '../../redux/actions/userAction.js';
 // import { bindActionCreators } from 'redux';
 // import * as actionCreators from 'redux/actions/userAction';
 
@@ -43,6 +43,7 @@ const Login = () => {
       localStorage.setItem('token', token);
 
       dispatch(isLoggedin(cred));
+      dispatch(setToken(token));
 
       // isLoggedin(cred);
       // setToken(token);
